@@ -6,8 +6,9 @@ Link: https://contest.yandex.ru/contest/17296/standings
 
 
 ФИО: Власов Евгений Юрьевич
-Контакты: evlasov@specialist.ru //
-          evgeny_vlasov@yahoo.com
-          +7 916 646 33 87
+Контакты: 
+
+evlasov@specialist.ru //
+evgeny_vlasov@yahoo.com
++7 916 646 33 87
           
-https://github.com/vlasove/Flask_Course1
