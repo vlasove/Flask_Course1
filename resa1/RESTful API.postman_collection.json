@@ -1,0 +1,129 @@
+{
+	"info": {
+		"_postman_id": "9e3035d6-2938-424a-8dc5-9b86f6f1879c",
+		"name": "RESTful API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/items",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/items",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"items"
+					]
+				},
+				"description": "This should return a list of items. Each in JSON format."
+			},
+			"response": []
+		},
+		{
+			"name": "/item/<name>",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/item/<name>",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"item",
+						"<name>"
+					]
+				},
+				"description": "This should return item with given name in JSON format."
+			},
+			"response": []
+		},
+		{
+			"name": "/item/<name> ",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/item/<name>",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"item",
+						"<name>"
+					]
+				},
+				"description": "This should delete item with given name "
+			},
+			"response": []
+		},
+		{
+			"name": "/item/<name>",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"price\" : 92.77\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/item/<name>",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"item",
+						"<name>"
+					]
+				},
+				"description": "This ,ethod will create an item with name <name> and price form JSON body"
+			},
+			"response": []
+		},
+		{
+			"name": "/item/<name>",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"price\" : 66.66\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/item/<name>",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"item",
+						"<name>"
+					]
+				},
+				"description": "This method will update an item with name <name> and price form JSON body OR create new item with name <name> and price form body."
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
