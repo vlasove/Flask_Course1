@@ -4,6 +4,9 @@
 # Задачи первого дня:
 Link: https://contest.yandex.ru/contest/17296/standings
 
+# Дополнительные задачи:
+https://contest.yandex.ru/contest/14849/problems/
+
 
 ФИО: Власов Евгений Юрьевич
 Контакты: 
