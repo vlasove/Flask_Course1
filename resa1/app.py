@@ -4,6 +4,7 @@ from flask_restful import Resource, Api, reqparse
 app = Flask(__name__)
 api = Api(app)
 
+
 itemsDB = [
     {
         'name' : 'MyItem',
@@ -16,20 +17,20 @@ itemsDB = [
 ]
 
 class Item(Resource):
+    parser = reqparse.RequestParser()
+    parser.add_argument("price",
+            type=float,
+            required=True,
+            help = "This field cannot be blank!"
+    )
+
     def get(self, name):
         return {'item':   next(filter(lambda x: x["name"] == name, itemsDB), None)}, 200
 
     def post(self,name):
         if next(filter(lambda x: x["name"] == name, itemsDB), None)  is not None:
             return {"message": "This item already exists"}
-        parser = reqparse.RequestParser()
-        parser.add_argument("price",
-            type=float,
-            required=True,
-            help = "This field cannot be blank!"
-        )
-
-        data = parser.parse_args()
+        data = Item.parser.parse_args()
         new_item = {"name" : name , "price" : data["price"]}
         itemsDB.append(new_item)
         return new_item
@@ -41,22 +42,14 @@ class Item(Resource):
 
 
     def put(self, name ):
-        parser = reqparse.RequestParser()
-        parser.add_argument("price",
-            type=float,
-            required=True,
-            help = "This field cannot be blank!"
-        )
-
-        data = parser.parse_args()
-
+        data = Item.parser.parse_args()
         item =  next(filter(lambda x: x["name"] == name, itemsDB), None)
         if item is None:
-            new_item = {"name": name, "price" : data["price"]}
-            itemsDB.append(new_item)
+            item = {"name": name, "price" : data["price"]}
+            itemsDB.append(item)
         else:
             item.update(data) #item - referal changing price
-        return item 
+        return item
 
 class ItemList(Resource):
     def get(self):
