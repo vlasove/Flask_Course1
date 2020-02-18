@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "ad97c5d6-78db-45ab-a177-9d94eff307ec",
+		"_postman_id": "b609086b-9284-418d-ac88-ee89a80d0c3a",
 		"name": "REST API first tests",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -12,6 +12,35 @@
 				"header": [],
 				"url": {
 					"raw": ""
+				},
+				"description": "Return all stores in data base"
+			},
+			"response": []
+		},
+		{
+			"name": "GET /stores Copy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\" : \"NewStore\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/store",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"store"
+					]
 				},
 				"description": "Return all stores in data base"
 			},
