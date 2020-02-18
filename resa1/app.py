@@ -4,21 +4,31 @@ from flask_restful import Resource, Api
 app = Flask(__name__)
 api = Api(app)
 
-itemsDB = []
+itemsDB = [
+    {
+        'name' : 'MyItem',
+        'price' : 17.99
+    },
+    {
+        'name' : 'Yoda',
+        'price' : 250.12
+    }
+]
 
 class Item(Resource):
-    def get():
+    def get(self, name):
+        return {'item':   next(filter(lambda x: x["name"] == name, itemsDB), None)}
+
+    def post(self,name):
         pass 
-    def post():
+    def delete(self, name):
         pass 
-    def delete():
-        pass 
-    def put():
+    def put(self, name ):
         pass 
 
 class ItemList(Resource):
-    def get():
-        pass 
+    def get(self):
+        return {'items' : itemsDB}
 
 api.add_resource(Item, '/item/<string:name>')
 api.add_resource(ItemList, '/items')

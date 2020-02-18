@@ -72,7 +72,17 @@ def get_item_in_store(name):
             return jsonify({"items":store["items"]}),200
     return jsonify({"message":"store not found"}), 204
 
-
+@app.route("/store/<string:name>", methods = ["DELETE"])
+def delete_store(name):
+    index = -1 
+    for i in range(len(storesDB)):
+        if storesDB[i]["name"] == name:
+            index = i 
+    if index < 0 :
+        return jsonify({"message": "store not found"}), 204
+    else:
+        del storesDB[index]
+        return jsonify({"message": "deleted"}), 202
 
 app.run(port=8080, debug=True)
 
