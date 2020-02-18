@@ -1,0 +1,46 @@
+{
+	"info": {
+		"_postman_id": "ad97c5d6-78db-45ab-a177-9d94eff307ec",
+		"name": "REST API first tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET /stores",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				},
+				"description": "Return all stores in data base"
+			},
+			"response": []
+		},
+		{
+			"name": "GET /store/<string:name>",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				},
+				"description": "Return all ifo about store :name"
+			},
+			"response": []
+		},
+		{
+			"name": "GET /store/<string:name>/item",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				},
+				"description": "Return all items form store with name = name"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
