@@ -73,4 +73,4 @@ class UserRegister(Resource):
         conn.commit()
         conn.close()
 
-        return {'message' : "User created"}, 201
+        return {'message' : "User created"}, 201    
