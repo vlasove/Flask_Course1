@@ -1,8 +1,14 @@
 from flask import Flask, request
 from flask_restful import Resource, Api, reqparse 
+from flask_jwt import JWT, jwt_required, current_identity
+
+from security import authenticate, identity
 
 app = Flask(__name__)
+app.secret_key = "vlasov"
 api = Api(app)
+
+jwt = JWT(app,authenticate, identity)
 
 
 itemsDB = [
@@ -27,6 +33,7 @@ class Item(Resource):
     def get(self, name):
         return {'item':   next(filter(lambda x: x["name"] == name, itemsDB), None)}, 200
 
+    @jwt_required()
     def post(self,name):
         if next(filter(lambda x: x["name"] == name, itemsDB), None)  is not None:
             return {"message": "This item already exists"}
@@ -34,7 +41,8 @@ class Item(Resource):
         new_item = {"name" : name , "price" : data["price"]}
         itemsDB.append(new_item)
         return new_item
-
+    
+    @jwt_required()
     def delete(self, name):
         global itemsDB
         itemsDB = list(filter(lambda  x : x["name"] != name, itemsDB)) 
