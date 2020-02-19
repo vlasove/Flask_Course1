@@ -7,6 +7,8 @@ Link: https://contest.yandex.ru/contest/17296/standings
 # Дополнительные задачи:
 https://contest.yandex.ru/contest/14849/problems/
 
+https://contest.yandex.ru/contest/14985/enter/
+
 
 ФИО: Власов Евгений Юрьевич
 Контакты: 
